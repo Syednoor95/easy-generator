@@ -41,7 +41,7 @@ const formFieldsData = [
   },
 ];
 
-const { SIGN_UP, HOME } = PathConstants;
+const { SIGN_UP, LANDING_PAGE } = PathConstants;
 
 const initialValues: LoginFormValues = {
   email: "",
@@ -58,7 +58,7 @@ const LoginForm: React.FC = () => {
     try {
       await postLoginDetails(values.email, values.password);
 
-    navigate(HOME)
+    navigate(LANDING_PAGE)
     } catch (error) {
       if (typeof error === "object" && error !== null && "status" in error) {
         if (error.status === 401 || error.status === 404) {
