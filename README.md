@@ -8,7 +8,6 @@ This is a backend application for user authentication built with NestJS, utilizi
 - [Technologies](#technologies)
 - [Getting Started](#getting-started)
 - [Configuration](#configuration)
-- [Running the Application](#running-the-application)
 
 ## Features
 
@@ -39,13 +38,13 @@ This is a backend application for user authentication built with NestJS, utilizi
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/user-auth-app.git
-cd user-auth-app 
+git clone https://github.com/Syednoor95/easy-generator.git
+cd easy-generator
 ```
 
-### Install Dependencies
-```bash
-yarn install
+### Running the Application
+```bash 
+./docker-up.sh
 ```
 
 ### Configuration
@@ -61,10 +60,7 @@ JWT_SECRET=your_jwt_secret_key
 - MONGO_URI: The MongoDB connection string.
 - JWT_SECRET: The secret key used for signing JWTs.
 
-### Running the Application
-```bash 
-./docker-up.sh
-```
+
 
 ### Swagger url
 - [Swagger Doc URL](http://localhost:3000/api-docs)
