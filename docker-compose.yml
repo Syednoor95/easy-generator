@@ -1,0 +1,27 @@
+services:
+  mongodb:
+    image: mongo:4.4
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./backend/mongo-data:/data/db
+  user-auth:
+    build: ./backend
+    container_name: user-auth
+    ports:
+      - "3000:3000"
+    environment:
+      MONGO_URI: mongodb://mongodb:27017/auth-app
+    depends_on:
+      - mongodb
+  frontend:
+    build: ./frontend
+    container_name: react-frontend
+    environment:
+      REACT_APP_API_BASE_URL: http://user-auth:3000
+      REACT_APP_PASSWORD_SECRET_KEY: "asdfghjkldfghjk"
+    ports:
+      - "3001:80"
+    depends_on:
+      - user-auth
